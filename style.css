@@ -1,5 +1,11 @@
 * {
     box-sizing: border-box;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+}
+
+*::selection {
+    background-color: var(--primary);
 }
 
 :root {
@@ -18,9 +24,12 @@ header {
     /* border: 2px solid var(--primary); */
     border-block: 2px solid var(--primary);
     width: 100%;
-    height: 5rem;
+
     margin-bottom: 1rem;
+    padding-block: 0.5rem;
     padding-inline: 2rem;
+    display: flex;
+    align-items: center;
 }
 
 nav {
@@ -30,19 +39,24 @@ nav {
     gap: 1.5rem;
 }
 
-nav .home {
+h1 {
     margin-right: auto;
     border-right: 2px solid var(--primary);
     border-left: 2px solid var(--primary);
     padding-right: 1rem;
     padding-left: 1rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    padding-block: 0.2rem;
+    color: white;
 }
 
 nav a {
     all: unset;
     cursor: pointer;
     /* font-size: 2rem; */
-    font-size: min(3vw, 36px);
+    font-size: min(2vw, 2em);
     text-transform: uppercase;
     letter-spacing: 0.3rem;
     color: white;
@@ -91,30 +105,74 @@ nav a:hover:before {
 .wrapper {
     margin: 0 auto;
     max-width: 70rem;
-    height: 600px;
+    min-height: 600px;
     display: flex;
     gap: 1rem;
 }
 
-main,
+/* main,
 aside {
+    display: grid;
+    place-items: center;
+    font-size: 3rem;
+    color: white;
+} */
+
+aside {
+    border: 2px solid var(--primary);
+    flex-grow: 1;
+    flex-basis: 400px;
+    box-shadow: 0 0 5px rgb(247, 49, 148), inset 0 0 5px rgb(247, 49, 148);
+}
+
+main {
+    border-inline: 2px solid var(--primary);
+    flex-grow: 1;
+}
+
+.main-about {
+    display: unset;
+    padding: 2rem;
+    font-size: 3rem;
+    color: white;
+}
+
+.main-about h2 {
+    margin: 0;
+}
+
+.aside-skillset {
+    padding: 2rem;
+    color: white;
+}
+
+.aside-skillset h3 {
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.aside-skillset ul {
+    font-size: 1.5rem;
+}
+
+.main-projects {
+    display: grid;
+    height: 600px;
+}
+
+.main-projects h2 {
+    text-align: center;
+}
+
+.main-contact {
     display: grid;
     place-items: center;
     font-size: 3rem;
     color: white;
 }
 
-aside {
-    border: 2px solid var(--primary);
-    flex-grow: 1;
-
-    box-shadow: 0 0 5px rgb(247, 49, 148), inset 0 0 5px rgb(247, 49, 148);
-}
-
-main {
-    border-inline: 2px solid var(--primary);
-    flex-grow: 3;
-}
 footer {
     border-block: 2px solid var(--primary);
     width: 100%;
@@ -122,7 +180,7 @@ footer {
     margin-top: 1rem;
 }
 
-button {
+/* button {
     all: unset;
 
     padding-inline: 2rem;
@@ -157,6 +215,77 @@ button:hover::before {
 .button-container:hover button {
     color: white;
     transform: rotateX(360deg);
+} */
+
+/* MAKING CONTACT FORM */
+
+/* form * {
+    display: block;
+} */
+
+form {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    row-gap: 1.5rem;
+    width: min(600px, 80vw);
+}
+form label {
+    font-size: 1.5rem;
+}
+
+form input[type="text"] {
+    /* width: 500px; */
+    font-size: 1rem;
+    padding: 0.5rem;
+    background-color: unset;
+    border: unset;
+    border-bottom: 2px solid var(--primary);
+    color: white;
+}
+
+form textarea {
+    height: 150px;
+    font-size: 1rem;
+    padding: 0.5rem;
+    resize: none;
+    background-color: unset;
+    border: unset;
+    border: 2px solid var(--primary);
+    color: white;
+}
+
+.send-button {
+    grid-column: span 2;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    padding: 0.5rem;
+    border: 2px solid var(--primary);
+    background-color: unset;
+    color: var(--primary);
+    letter-spacing: 0.5rem;
+    position: relative;
+    transition: all 300ms ease-in;
+}
+
+.send-button:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.send-button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0%;
+    background-color: var(--primary);
+    transition: all 300ms ease-in;
+    z-index: -1;
+}
+
+.send-button:hover::after {
+    width: 100%;
 }
 
 /* EXPERIMENTING WITH CARUOUSEL SFSF */
@@ -224,4 +353,121 @@ button:hover::before {
 
 .three img {
     height: 80%;
+}
+
+/* EXPERIMENT WITH MODAL IN CAROUSEL */
+.carousel div {
+    position: relative;
+}
+
+.carousel div a {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    opacity: 0%;
+    background-color: rgba(201, 196, 196, 0.445);
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 300ms;
+}
+
+.modal-container {
+    background-color: rgb(0, 0, 2);
+    border: 2px solid var(--primary);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal h3,
+.modal p {
+    color: white;
+    text-align: center;
+}
+
+.modal h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.project-link {
+    text-align: center;
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+.close-modal {
+    display: inline-block;
+    color: var(--primary);
+    text-decoration: none;
+    border: 2px solid var(--primary);
+    padding-block: 0.5rem;
+    padding-inline: 2rem;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    margin-left: auto;
+}
+#modal-slide1:target {
+    visibility: visible;
+    opacity: 100%;
+}
+#modal-slide2:target {
+    visibility: visible;
+    opacity: 100%;
+}
+#modal-slide3:target {
+    visibility: visible;
+    opacity: 100%;
+}
+
+@media (max-width: 720px) {
+    header {
+        flex-direction: column;
+    }
+    h1 {
+        margin-inline: auto;
+    }
+
+    nav a {
+        font-size: 1rem;
+    }
+
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .aside-skillset {
+        flex-basis: auto;
+    }
+}
+
+@media (max-width: 520px) {
+    nav {
+        flex-direction: column;
+        margin-block: 1rem;
+    }
+
+    .main-about h2 {
+        font-size: 3rem;
+    }
+
+    .main-about p {
+        font-size: 2rem;
+    }
+
+    .main-contact form {
+        grid-template-columns: 1fr;
+    }
+
+    .send-button {
+        grid-column: span 1;
+    }
 }

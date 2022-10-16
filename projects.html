@@ -9,32 +9,72 @@
     </head>
     <body>
         <header>
+            <h1 href="index.html">Robin<br />Bergstrand</h1>
             <nav>
-                <a href="index.html" class="home">Robin</a>
-                <a href="#" class="active-page">About</a>
-                <a href="#">Projects</a>
+                <a href="index.html" class="active-page">About</a>
+                <a href="projects.html">Projects</a>
                 <a href="#">Education</a>
-                <a href="#">Contact</a>
+                <a href="contact.html">Contact</a>
             </nav>
         </header>
         <div class="wrapper">
-            <main>
-                <div class="carousel">
+            <main class="main-projects">
+                <h2 style="color: white">
+                    Click each project for more information
+                </h2>
+                <div class="carousel" id="carousel">
                     <div id="slide1" class="one">
+                        <a href="#modal-slide1"></a>
                         <img src="images/Webbutveckling.png" alt="" />
                     </div>
                     <div id="slide2" class="two">
+                        <a href="#modal-slide2"></a>
                         <img src="images/Wordle.png" alt="" />
                     </div>
                     <div id="slide3" class="three">
+                        <a href="#modal-slide3"></a>
                         <img src="images/FizzBuzz.png" alt="" />
+                    </div>
+                </div>
+                <div id="modal-slide1" class="modal">
+                    <div class="modal-container">
+                        <h3>Last assignment for Webbutveckling 1</h3>
+                        <p>
+                            This was an assignment originally made using
+                            wordpress generating the pages following a custom
+                            template.
+                        </p>
+                        <a class="close-modal" href="#carousel">Close</a>
+                    </div>
+                </div>
+                <div id="modal-slide2" class="modal">
+                    <div class="modal-container">
+                        <h3>A copy of Wordle</h3>
+                        <p>A simple functional copy of wordle using Grid</p>
+                        <a class="close-modal" href="#carousel">Close</a>
+                    </div>
+                </div>
+                <div id="modal-slide3" class="modal">
+                    <div class="modal-container">
+                        <h3>Displaying FizzBuzz in a grid</h3>
+                        <p>
+                            FizzBuzz is a "game" where you count incrementally,
+                            but whenever the number is divisible by 3 you say
+                            "Fizz", whenever it's divisible by 5 you say "Buzz"
+                            and when both apply you say "FizzBuzz".
+                        </p>
+                        <p>
+                            I decided to display this in a neat manner using a
+                            grid layout.
+                        </p>
+                        <a class="project-link" href=""
+                            >Here's a link to the project</a
+                        >
+                        <a class="close-modal" href="#carousel">Close</a>
                     </div>
                 </div>
             </main>
         </div>
         <footer></footer>
-        <div class="button-container">
-            <button>NEXT</button>
-        </div>
     </body>
 </html>
