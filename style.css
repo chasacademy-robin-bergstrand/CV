@@ -52,11 +52,16 @@ h1 {
     color: white;
 }
 
+.active-page {
+    color: var(--primary);
+}
+
 nav a {
     all: unset;
     cursor: pointer;
     /* font-size: 2rem; */
     font-size: min(2vw, 2em);
+
     text-transform: uppercase;
     letter-spacing: 0.3rem;
     color: white;
@@ -94,13 +99,11 @@ nav a:hover {
 nav a:hover:after {
     right: 0;
     background-color: var(--primary);
-    box-shadow: 0 0 5px rgb(247, 49, 148), inset 0 0 5px rgb(247, 49, 148);
 }
 
 nav a:hover:before {
     left: 0;
     background-color: var(--primary);
-    box-shadow: 0 0 5px rgb(247, 49, 148), inset 0 0 5px rgb(247, 49, 148);
 }
 .wrapper {
     margin: 0 auto;
@@ -122,7 +125,6 @@ aside {
     border: 2px solid var(--primary);
     flex-grow: 1;
     flex-basis: 400px;
-    box-shadow: 0 0 5px rgb(247, 49, 148), inset 0 0 5px rgb(247, 49, 148);
 }
 
 main {
@@ -141,19 +143,22 @@ main {
     margin: 0;
 }
 
-.aside-skillset {
+.aside-skillset,
+.aside-education {
     padding: 2rem;
     color: white;
 }
 
-.aside-skillset h3 {
+.aside-skillset h3,
+.aside-education h3 {
     font-size: 2rem;
     margin: 0;
     text-align: center;
     white-space: nowrap;
 }
 
-.aside-skillset ul {
+.aside-skillset ul,
+.aside-education ul {
     font-size: 1.5rem;
 }
 
@@ -164,6 +169,16 @@ main {
 
 .main-projects h2 {
     text-align: center;
+}
+
+.main-education {
+    display: unset;
+    padding: 2rem;
+    font-size: 3rem;
+    color: white;
+}
+.main-education h2 {
+    margin: 0;
 }
 
 .main-contact {
@@ -178,50 +193,40 @@ footer {
     width: 100%;
     height: 10rem;
     margin-top: 1rem;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    color: white;
+    flex-direction: column;
 }
 
-/* button {
-    all: unset;
-
-    padding-inline: 2rem;
-    padding-block: 1rem;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-        sans-serif;
-    font-size: 1.5rem;
-    border: 2px solid var(--primary);
-    color: var(--primary);
-    position: relative;
-    transition: all 300ms ease-in;
-    letter-spacing: 0.5rem;
+footer img {
+    height: 30px;
     cursor: pointer;
 }
 
-button::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 0%;
-    background-color: rgb(255, 255, 255);
-    transition: all 300ms ease-in;
-    z-index: -1;
-}
-button:hover::before {
-    width: 100%;
-    background-color: var(--primary);
+.social-media {
+    display: flex;
+    gap: 2em;
 }
 
-.button-container:hover button {
-    color: white;
-    transform: rotateX(360deg);
-} */
+.facebook:hover {
+    filter: invert(28%) sepia(62%) saturate(843%) hue-rotate(187deg)
+        brightness(50%) contrast(79%);
+}
+
+.twitter:hover {
+    filter: invert(28%) sepia(62%) saturate(10000%) hue-rotate(187deg)
+        brightness(100%) contrast(100%);
+}
+
+.linkedin:hover {
+    filter: invert(28%) sepia(62%) saturate(10000%) hue-rotate(187deg)
+        brightness(100%) contrast(100%);
+}
 
 /* MAKING CONTACT FORM */
-
-/* form * {
-    display: block;
-} */
 
 form {
     display: grid;
@@ -279,13 +284,14 @@ form textarea {
     top: 0;
     bottom: 0;
     width: 0%;
-    background-color: var(--primary);
+    background-color: white;
     transition: all 300ms ease-in;
     z-index: -1;
 }
 
 .send-button:hover::after {
     width: 100%;
+    background-color: var(--primary);
 }
 
 /* EXPERIMENTING WITH CARUOUSEL SFSF */
@@ -414,7 +420,32 @@ form textarea {
     text-transform: uppercase;
     margin-top: 1rem;
     margin-left: auto;
+    position: relative;
+    transition: all 300ms ease-in;
+    z-index: 1;
 }
+
+.close-modal:hover {
+    color: white;
+}
+
+.close-modal::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    background-color: white;
+    transition: all 300ms ease-in;
+    z-index: -1;
+}
+
+.close-modal:hover::after {
+    width: 100%;
+    background-color: var(--primary);
+}
+
 #modal-slide1:target {
     visibility: visible;
     opacity: 100%;
